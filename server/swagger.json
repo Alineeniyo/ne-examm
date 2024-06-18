@@ -1,0 +1,522 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "STARTER TEMPLATE",
+        "title": "Simple student crud",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "name": "aline",
+            "email": "alineniyomungeli@gmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "tags": [
+        {
+            "name": "VEHICLE OPERATIONS",
+            "description": "Operations on vehicles"
+        },
+        {
+            "name": "USER OPERATIONS",
+            "description": "Operations on users"
+        },
+        {
+            "name": "STUDENT OPERATIONS",
+            "description": "Operations on car owners"
+        },
+        {
+            "name": "VEHICLE-OWNERSHIP OPERATIONS",
+            "description": "Operations on vehicle-ownership"
+        }
+    ],
+    "security": [
+        {
+            "Bearer": []
+        }
+    ],
+    "securityDefinitions": {
+        "Bearer": {
+            "type": "apiKey",
+            "name": "auth-token",
+            "in": "header",
+            "bearerFormat": "JWT",
+            "scheme": "bearer"
+        }
+    },
+    "paths": {
+        "/users/login": {
+            "post": {
+                "tags": [
+                    "USER OPERATIONS"
+                ],
+                "summary": "Login",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "type": "object",
+                        "consumes": "application/json",
+                        "properties": {
+                            "email": {
+                                "type": "string",
+                                "required": "true"
+                            },
+                            "password": {
+                                "type": "string",
+                                "required": "true"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "400": {
+                        "description": "Invalid data"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/users/admin/register": {
+            "post": {
+                "tags": [
+                    "USER OPERATIONS"
+                ],
+                "summary": "Register",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "type": "object",
+                        "consumes": "application/json",
+                        "properties": {
+                            "firstname": {
+                                "type": "string",
+                                "required": "true"
+                            },
+                            "lastname": {
+                                "type": "string",
+                                "required": "true"
+                            },
+                            "phone": {
+                                "type": "string",
+                                "required": "true"
+                            },
+                            "email": {
+                                "type": "string",
+                                "required": "true"
+                            },
+                            
+                            "password": {
+                                "type": "string",
+                                "required": "true"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "400": {
+                        "description": "Invalid data"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/users/profile": {
+            "get": {
+                "tags": [
+                    "USER OPERATIONS"
+                ],
+                "summary": "Get user profile",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "400": {
+                        "description": "Invalid data"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/owners": {
+            "get": {
+                "tags": [
+                    "OWNER OPERATIONS"
+                ],
+                "summary": "Get Car Owners",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "page",
+                        "type": "number"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "400": {
+                        "description": "Invalid data"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/owners/all": {
+            "get": {
+                "tags": [
+                    "OWNER OPERATIONS"
+                ],
+                "summary": "Get All Car Owners",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "400": {
+                        "description": "Invalid data"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/owners/register": {
+            "post": {
+                "tags": [
+                    "OWNER OPERATIONS"
+                ],
+                "summary": "Register car owner",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "type": "object",
+                        "consumes": "application/json",
+                        "properties": {
+                            "firstname": {
+                                "type": "string",
+                                "required": "true"
+                            },
+                            "lastname": {
+                                "type": "string",
+                                "required": "true"
+                            },
+                            "phone": {
+                                "type": "string",
+                                "required": "true"
+                            },
+                            "address": {
+                                "type": "string",
+                                "required": "true"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "400": {
+                        "description": "Invalid data"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/vehicles/register": {
+            "post": {
+                "tags": [
+                    "VEHICLE OPERATIONS"
+                ],
+                "summary": "Register vehicle",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "type": "object",
+                        "consumes": "application/json",
+                        "properties": {
+                            "chasisNumber": {
+                                "type": "string",
+                                "required": "true"
+                            },
+                            "manufactureCompany": {
+                                "type": "string",
+                                "required": "true"
+                            },
+                            "manufactureYear": {
+                                "type": "number",
+                                "required": "true"
+                            },
+                            "price": {
+                                "type": "number",
+                                "required": "true"
+                            },
+                            "modelName": {
+                                "type": "string",
+                                "required": "true"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "400": {
+                        "description": "Invalid data"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/vehicles": {
+            "get": {
+                "tags": [
+                    "VEHICLE OPERATIONS"
+                ],
+                "summary": "Get Vehicles",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "page",
+                        "type": "number"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "400": {
+                        "description": "Invalid data"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/vehicles/all": {
+            "get": {
+                "tags": [
+                    "VEHICLE OPERATIONS"
+                ],
+                "summary": "Get All Vehicles",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "400": {
+                        "description": "Invalid data"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/vehicle-owners": {
+            "get": {
+                "tags": [
+                    "VEHICLE-OWNERSHIP OPERATIONS"
+                ],
+                "summary": "Get Vehicles Ownerships",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "page",
+                        "type": "number"
+                    },
+                    {
+                        "in": "query",
+                        "name": "limit",
+                        "type": "number"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "400": {
+                        "description": "Invalid data"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        },
+        "/vehicle-owners/assign/vehicle/{vehicleId}/owner/{ownerId}": {
+            "post": {
+                "tags": [
+                    "VEHICLE-OWNERSHIP OPERATIONS"
+                ],
+                "summary": "Assign vehicle to owner",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "vehicleId",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "in": "path",
+                        "name": "ownerId",
+                        "type": "string",
+                        "required": true
+                    },
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "type": "object",
+                        "consumes": "application/json",
+                        "properties": {
+                            "plateNumber": {
+                                "type": "string",
+                                "required": "true"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "201": {
+                        "description": "Created"
+                    },
+                    "400": {
+                        "description": "Invalid data"
+                    },
+                    "500": {
+                        "description": "Internal server error"
+                    }
+                }
+            }
+        }
+    }
+}
