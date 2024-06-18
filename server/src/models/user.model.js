@@ -7,7 +7,7 @@ import sequelize from '../utils/database.js'
 export class User extends Model {
     generateAuthToken() {
         const token = sign(
-            { _id: this._id, role: this.role },
+            {firstname: this.firstname, lastName: this.lastname, email: this.email, _id: this._id, role: this.role },
             (process.env.JWT).trim()
         )
         return token;
